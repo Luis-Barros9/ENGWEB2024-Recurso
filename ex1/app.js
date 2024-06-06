@@ -27,6 +27,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/books', livrosRouter);
 
-console.log("http://localhost:17000/livros")
+console.log("http://localhost:17000/books")
 
 module.exports = app;

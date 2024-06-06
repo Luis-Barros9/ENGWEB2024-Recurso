@@ -16,7 +16,36 @@ Para terminar subsitui o nome do identificador por "_id" para funcionar em confo
 
 Tal como é pedido no enunciado, as queires encontram-se disponíveis no ficheiro queries.txt dentro do ex1
 
+## Ex1
+
+Para correr o exercicio 1, basta correr os seguintes comandos:
+```
+npm i
+npm start
+```
+
+Pode também ser necessário correr: 
+```
+npm install mongoose
+```
+
+## Ex2
+
+Para correr o exercicio 2, basta correr os seguintes comandos:
+```
+npm i
+npm start
+```
+
+Pode também ser necessário correr: 
+```
+npm install axios
+```
+
+
 ## Docker
 
 Os exercícios foram todos desenvolvidos em docker, por isso para correr o código, basta utilizar o comando 
-```docker compose up -d```
+```
+docker compose up -d
+```
