@@ -12,10 +12,10 @@ def authorToList(input_string):
     "Oscar Wilde, Jeffrey Eugenides (Introduction)" -> ["Oscar Wilde", "Jeffrey Eugenides"]
     '''
     # Split the string by comma
+
+    input_string = re.sub(r'\s*\([^)]*\)', '', input_string)
     authors = input_string.split(',')
 
-    # Remove any trailing spaces and content within parentheses
-    authors = [re.sub(r'\s*\([^)]*\)', '', author.strip()) for author in authors]
 
     return authors
 

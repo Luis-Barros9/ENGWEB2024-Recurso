@@ -37,14 +37,20 @@ module.exports.characters = () => {
     .exec();
 }
 
-module.exports.insert = Livro => {
-  return Livro.create(Livro);
+module.exports.insert = p => {
+  var novo = new Livro(p);
+  return novo.save();
 }
 
 module.exports.removeById = id => {
   return Livro.deleteOne({ _id: id });
 }
 
-module.exports.update = (id, Livro) => {
-  return Livro.updateOne({ _id: id }, Livro);
+
+module.exports.update = (id, p) => {
+  return Livro
+    .findByIdAndUpdate
+    (id, p
+      , { new: true }
+    );
 }
