@@ -40,7 +40,7 @@ um id ao autor).
 livro cujo identificador foi passado na rota:
 Esta página deverá conter todos os campos do livro e um link para voltar à página principal;
 Deverás também inluir a imagem referenciada no campo coverImg, se este existir no registo.
-. Se colocares no browser o endereço http://localhost:17001/entidades/:idAutor deverás
+. Se colocares no browser o endereço http://localhost:17001/authors/:idAutor deverás
 obter a página do autor cujo id corresponde ao parâmetro passado na rota :
 Na página de cada autor deverá constar este identificador e o respetivo nome;
 Uma tabela com a lista de livros desse autor (tabela com estrutura semelhante à da página
@@ -59,13 +59,13 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.get('/entidades/:id', function(req, res, next) {
-  console.log("nas entidades")
+router.get('/authors/:id', function(req, res, next) {
+  console.log("nas authors")
   axios.get(api_url + '/books')
     .then(dados => {
       fromAuthor = []
       dados.data.forEach(element => {
-        if (element.author == req.params.id) {
+        if (element.author.includes(req.params.id)) {
           fromAuthor.push(element)
         }
       });

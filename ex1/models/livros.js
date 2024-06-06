@@ -4,7 +4,7 @@ const livroSchema = new mongoose.Schema({
     _id: Number,
     title: String,
     series: String,
-    author: String,
+    author: [String],
     rating: Number,
     description: String,
     language: String,

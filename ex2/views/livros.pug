@@ -20,6 +20,6 @@ block content
               a(href=`/${book._id}`) #{book._id}
             td #{book.title}
             td
-              a(href=`/entidades/${book.author}`) #{book.author}
+              a(href=`/authors/${book.author[0]}`) #{book.author[0]}
             td #{book.publishDate}
             td #{book.pages}

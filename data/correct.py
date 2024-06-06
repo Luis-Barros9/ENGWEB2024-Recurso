@@ -3,6 +3,22 @@ import ast
 import re
 
 
+import re
+
+def authorToList(input_string):
+    '''
+    "J.R.R. Tolkien" -> ["J.R.R. Tolkien"]
+    "J.K. Rowling, Mary GrandPré" -> ["J.K. Rowling", "Mary GrandPré"]
+    "Oscar Wilde, Jeffrey Eugenides (Introduction)" -> ["Oscar Wilde", "Jeffrey Eugenides"]
+    '''
+    # Split the string by comma
+    authors = input_string.split(',')
+
+    # Remove any trailing spaces and content within parentheses
+    authors = [re.sub(r'\s*\([^)]*\)', '', author.strip()) for author in authors]
+
+    return authors
+
 def strToDouble(input_string):
     # converts a string in format of double to a double or keep as string
     # for example "2.5" -> 2.5
@@ -73,7 +89,9 @@ if __name__ =="__main__":
         item ={}
         for key, value in element.items():
             if value!="":
-                if key in lists:
+                if key == "author":
+                    item[key] = authorToList(value)
+                elif key in lists:
                     if key == "ratingsByStars":
                         item[key] = []
                         x = strToList(value)

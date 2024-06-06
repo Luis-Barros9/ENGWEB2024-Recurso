@@ -9,7 +9,10 @@ block content
     p ID: #{book._id}
     p Series: #{book.series}
     p Author: 
-        a(href=`/entidades/${book.author}`) #{book.author}
+        ul
+          each author in book.author
+            li
+                a(href=`/authors/${author}`) #{author}
     p Rating: #{book.rating}
     p Description: #{book.description}
     p Language: #{book.language}
