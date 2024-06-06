@@ -1,0 +1,28 @@
+
+version: '3.8'
+services:
+  livros-api:
+    build:
+      context: ./ex1
+    ports:
+      - "17000:17000"
+    depends_on:
+      - mongodb
+  livros-web:
+    build:
+      context: ./ex2
+    ports:
+      - "17001:17001"
+    depends_on:
+      - livros-api
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    depends_on:
+      - mongo-seed
+  mongo-seed:
+    image: mongo:latest
+    volumes:
+      - ./data/data.json:/data.json
+    command: mongoimport --host mongodb -d livros -c livros --type json --file data.json --jsonArray

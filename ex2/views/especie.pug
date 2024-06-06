@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  header
+    h1.w3-text-blue #{plantas[0].Espécie}
+
+  h2.w3-text-grey Nome Científico: #{plantas[0]['Nome Científico']}
+
+  table.w3-table.w3-striped.w3-bordered
+    thead
+      tr
+        th Id
+        th Freguesia
+        th Estado
+        th Número de intervenções
+    tbody
+      each planta in plantas
+        tr
+          td
+            a(href=`/${planta._id}`) #{planta._id}
+          td #{planta.Freguesia}
+          td #{planta.Estado}
+          td #{planta["Número de intervenções"]}
+
+  a.w3-button.w3-blue(href='/') Voltar à página principal
+  

@@ -1,0 +1,14 @@
+FROM node
+
+WORKDIR /app
+
+COPY . .
+
+
+RUN npm install mongoose
+
+RUN npm install
+
+EXPOSE 17001
+
+CMD ["npm", "start"]

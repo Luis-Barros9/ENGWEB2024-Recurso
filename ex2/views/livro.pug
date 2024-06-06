@@ -1,0 +1,49 @@
+extends layout
+
+block content
+    header
+        h1.w3-container #{book.title}
+    if book.coverImg
+      .w3-container    
+        img(src=book.coverImg, alt=book.title)
+    p ID: #{book._id}
+    p Series: #{book.series}
+    p Author: 
+        a(href=`/entidades/${book.author}`) #{book.author}
+    p Rating: #{book.rating}
+    p Description: #{book.description}
+    p Language: #{book.language}
+    p ISBN: #{book.isbn}
+    p Genres: 
+      ul
+        each genre in book.genres
+          li #{genre}
+    p Characters: 
+      ul
+        each character in book.characters
+          li #{character}
+    p Book Format: #{book.bookFormat}
+    p Edition: #{book.edition}
+    p Pages: #{book.pages}
+    p Publisher: #{book.publisher}
+    p Publish Date: #{book.publishDate}
+    p Awards: 
+      ul
+        each award in book.awards
+          li #{award}
+    p Number of Ratings: #{book.numRatings}
+    p Ratings by Stars: 
+      ul
+        each rating in book.ratingsByStars
+          li #{rating}
+    p Liked Percent: #{book.likedPercent}
+    p Setting: 
+      ul
+        each setting in book.setting
+          li #{setting}
+    p BBE Score: #{book.bbeScore}
+    p BBE Votes: #{book.bbeVotes}
+    p Price: #{book.price}
+
+    footer
+        a(href='/') Back to main page

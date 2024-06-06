@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    header
+        h1.w3-center Author: #{books[0].author}
+    p ID: #{id}
+    
+    table.w3-table.w3-bordered.w3-striped
+        thead
+        tr
+            th ID
+            th Title
+            th Publish Date
+            th Pages
+        tbody
+        each book in books
+            tr
+            td
+                a(href=`/${book._id}`) #{book._id}
+            td #{book.title}
+            td #{book.publishDate}
+            td #{book.pages}
+    
+    footer 
+        p Total books: #{books.length}
+        a(href='/') Back to main page
